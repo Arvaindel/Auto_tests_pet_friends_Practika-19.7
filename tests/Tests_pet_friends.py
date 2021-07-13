@@ -100,3 +100,4 @@ def test_pet_frends_post_api_pets_seccessfull_simvolnoe_name(name='%;$,#@)(*:^&?
     status, result = pf.post_api_pets(auth_key, name, animal_type,age, pet_photo)
     assert status==200
     assert result['name']!=''
+    re
