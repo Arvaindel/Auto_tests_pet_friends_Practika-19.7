@@ -50,14 +50,18 @@ class PetFrends:
                 'pet_photo': (pet_photo, open(pet_photo, 'rb'), 'images/cat.jpg')
             })
         headers = {'auth_key': auth_key['key'], 'Content-Type': data.content_type}
+
         res = requests.post(self.base_url + 'api/pets', headers=headers, data=data)
         status = res.status_code
-        result = ""
+
+        result = ''
         try:
             result = res.json()
+
         except:
+
             result = res.text
-        return status, result
+        return status, result, res
 
     def del_api_pet(self, auyh_key, pet_id):
         '''Метод далеат запрос в API запрос и удаляет  питомца '''
@@ -65,14 +69,16 @@ class PetFrends:
             'auth_key': auyh_key['key'],
 
         }
+
         res = requests.delete(self.base_url + 'api/pets/' + pet_id, headers=headers)
+
         status = res.status_code
         result = ""
         try:
             result = res.json()
         except:
             result = res.text
-        return status, result
+        return status, result, res
 
     def put_api_pet(self, auth_key, pet_id, name, animal_type, age):
 
@@ -92,4 +98,4 @@ class PetFrends:
             result = res.json()
         except:
             result = res.text
-        return status, result
+        return status, result, res
