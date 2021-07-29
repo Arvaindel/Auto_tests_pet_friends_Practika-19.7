@@ -9,7 +9,7 @@ class PetFrends:
     def get_api_key(self, email, password):
         '''Метод делает к API сервера и возвращает статус запроса
         результат в формате JSON с уникальным ключем пользователя найденного по
-        указанным email и password'''
+        указанным email и password12'''
         headers = {
             'email': email,
             'password': password
